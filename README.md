@@ -49,6 +49,12 @@ def xxx():
 * `t_SNE()` t-SNE 降维
 * `get_pca()` pca 降维
 
+### Distance.py
+
+包括各种距离度量的计算：
+
+* `RelevanceMatrix()` 根据标签输出关联矩阵
+
 ### Clustering.py
 
 包括聚类相关算法：
