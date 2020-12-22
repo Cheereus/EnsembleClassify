@@ -2,3 +2,5 @@
 /src/datasets/*.pkl
 /src/temp
 /src/outputs
+/src/rel_mat
+/src/ae_output

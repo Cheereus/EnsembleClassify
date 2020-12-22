@@ -44,6 +44,8 @@ def hca_labels(model, n_clusters):
 @time_indicator
 # k-medoids
 def kMedoids(D, k, tmax=100):
+
+    np.random.seed(2)
     # determine dimensions of distance matrix D
     m, n = D.shape
 
