@@ -17,6 +17,6 @@ distance_matrix = [
 ]
 
 cluster_method = [
-    'k-medoids',
+    'k-means',
     'hca'
 ]
