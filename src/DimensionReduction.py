@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
+from sklearn.cluster import FeatureAgglomeration
 from Decorator import time_indicator
 
 
@@ -36,3 +37,16 @@ def get_pca(data, c=3, with_normalize=False):
     newX = pca_result.fit_transform(data)
 
     return newX, pca_result.explained_variance_ratio_, pca_result
+
+
+# Feature Agglomeration
+@time_indicator
+def feature_agglomeration(data, dim=2, with_normalize=False):
+    if with_normalize:
+        data = get_normalize(data)
+
+    agglo = FeatureAgglomeration(n_clusters=dim)
+    agglo.fit(data)
+    data_reduced = agglo.transform(data)
+
+    return data_reduced

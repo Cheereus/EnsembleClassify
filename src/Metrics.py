@@ -1,16 +1,8 @@
-from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, f1_score
+from sklearn.metrics import accuracy_score, adjusted_rand_score, normalized_mutual_info_score, f1_score
 
 
-def accuracy(predict_labels, true_labels):
-    if len(predict_labels) != len(true_labels):
-        print('Label Length Error')
-        return 0
-    label_length = len(predict_labels)
-    correct = 0
-    for i in range(label_length):
-        if predict_labels[i] == true_labels[i]:
-            correct += 1
-    return correct / label_length
+def accuracy(true_labels, predict_labels):
+    return accuracy_score(true_labels, predict_labels)
 
 
 def ARI(true_labels, predict_labels):
