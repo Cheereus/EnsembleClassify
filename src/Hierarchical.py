@@ -7,7 +7,8 @@ from Metrics import ARI
 
 dataset_name = 'PBMC'
 
-data = joblib.load('ae_output/ae_dim_data_99.pkl')
+# data = joblib.load('ae_output/ae_dim_data_99.pkl')
+data = joblib.load('outputs/' + dataset_name + '_FA_20.pkl')
 # data = joblib.load('outputs/' + dataset_name + '_pca_20.pkl')
 labels_true = joblib.load('datasets/' + dataset_name + '_labels.pkl')
 
@@ -16,7 +17,7 @@ model = hca(data)
 labels_pred = hca_labels(model, 6)
 
 rel_mat = RelevanceMatrix(labels_pred)
-joblib.dump(rel_mat, 'rel_mat/' + dataset_name + '_ae_HCA.pkl')
+joblib.dump(rel_mat, 'rel_mat/' + dataset_name + '_FA_HCA.pkl')
 print('ARI:', ARI(labels_true, labels_pred))
 # hca_dendrogram(model)
 
