@@ -10,7 +10,6 @@ n_classifiers = len(dimension_reduction) * len(cluster_method)
 
 rel_mats = []
 ind_vectors = []
-idx_classifier = 0
 
 # load relevance matrix
 for dr in dimension_reduction:
