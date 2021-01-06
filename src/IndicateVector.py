@@ -5,8 +5,6 @@ from Config import dimension_reduction, cluster_method
 dataset = 'PBMC'
 
 n_samples = 3694
-n_indicator = n_samples * (n_samples - 1) / 2
-n_classifiers = len(dimension_reduction) * len(cluster_method)
 
 rel_mats = []
 ind_vectors = []
