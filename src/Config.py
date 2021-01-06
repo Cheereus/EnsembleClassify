@@ -7,8 +7,10 @@ cluster_numbers = [
 ]
 
 dimension_reduction = [
-    'tSNE',
-    'PCA'
+    '_AE_',
+    '_tSNE_',
+    '_PCA_',
+    '_FA_'
 ]
 
 distance_matrix = [
@@ -17,6 +19,6 @@ distance_matrix = [
 ]
 
 cluster_method = [
-    'k-means',
-    'hca'
+    'kmeans',
+    'HCA'
 ]
