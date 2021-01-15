@@ -3,8 +3,6 @@ import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import Sequential, layers
-from PIL import Image
-from matplotlib import pyplot as plt
 import joblib
 
 tf.random.set_seed(22)

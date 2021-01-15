@@ -12,11 +12,11 @@ print('Data loaded', sum(labels) / len(labels))
 
 idx = np.arange(n_samples)
 np.random.shuffle(idx)
-data = data[idx]
+data_shuffled = data[idx]
 labels = np.array(labels)[idx]
 print('Data shuffled')
 
-X_train, X_test, Y_train, Y_test = train_test_split(data, labels, test_size=0.2)
+X_train, X_test, Y_train, Y_test = train_test_split(data_shuffled, labels, test_size=0.2)
 
 batch_size = 256
 
