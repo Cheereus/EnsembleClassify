@@ -33,11 +33,11 @@ def ensemble_learning(dataset):
     model.compile(loss=keras.losses.binary_crossentropy, optimizer='adam', metrics=['accuracy'])
     model.fit(x=data_shuffled, y=labels, validation_split=0.2, epochs=5, batch_size=batch_size)
     y_pred = model.predict(data)
-    acc = 0
-    for i in trange(len(y_pred)):
-        if labels[i] == y_pred[i]:
-            acc += 1
-    print('Acc:', acc / len(y_pred))
+    # acc = 0
+    # for i in trange(len(y_pred)):
+    #     if labels[i] == y_pred[i]:
+    #         acc += 1
+    # print('Acc:', acc / len(y_pred))
     joblib.dump(y_pred, 'labels_pred/' + dataset + '/_DNN_Pred_Proba.pkl')
 
 
