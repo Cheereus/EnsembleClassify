@@ -82,13 +82,17 @@ def xxx():
 
 ## 核心流程文件
 
+### Config.py
+
+* 全局配置文件
+
 ### GetDimData.py
 
 * 对原始数据进行多种降维并保存
 
-### GetClusters.py
+### BASE_*.py
 
-* 对降维数据进行聚类并保存相关矩阵
+* 对降维数据进行多方法聚类并保存相关矩阵
 
 ### IndicateVector.py
 
