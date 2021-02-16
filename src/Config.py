@@ -1,11 +1,16 @@
+# 在此文件中定义全局配置
+
+# 数据集
 datasets = [
     'PBMC'
 ]
 
+# 数据集对应的聚类数目
 cluster_numbers = [
     6
 ]
 
+# 使用的降维方法
 dimension_reduction_methods = [
     # '_AE_',
     '_tSNE_',
@@ -17,15 +22,10 @@ dimension_reduction_methods = [
     '_Isomap_'
 ]
 
-distance_matrix = [
-    'euclidean',
-    'cosine'
-]
-
+# 使用的聚类方法
 cluster_method = [
     'kmeans',
     # 'HCA',
     'AGNES',
     'GMM',
-
 ]
