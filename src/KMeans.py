@@ -1,30 +1,36 @@
 import joblib
-import numpy as np
 from Distance import RelevanceMatrix
 from Clustering import k_means
-from Metrics import ARI
-from Utils import get_color, draw_scatter
+from Metrics import ARI, NMI
+from Decorator import time_indicator
+from Config import dimension_reduction_methods
 
-dataset_name = 'PBMC'
 
-data = joblib.load('outputs/' + dataset_name + '_FA_20.pkl')
-labels_true = joblib.load('datasets/' + dataset_name + '_labels.pkl')
-# data = joblib.load('ae_output/ae_dim_data_99.pkl')
+# TODO 修改为多线程并行
+@time_indicator
+def rel_mat_k_means(dataset, dr_methods, n_clusters):
+    for method in dr_methods:
 
-labels_pred = k_means(data, 6)
+        data = joblib.load('dim_data/' + dataset + '/' + method + '.pkl')
+        labels_true = joblib.load('datasets/' + dataset + '_labels.pkl')
 
-print(ARI(labels_true, labels_pred))
-print(labels_true, labels_pred)
+        labels_pred = k_means(data, n_clusters)
 
-rel_mat = RelevanceMatrix(labels_pred)
-joblib.dump(rel_mat, 'rel_mat/' + dataset_name + '_FA_kmeans.pkl')
+        # 计算并输出评价指标
+        print(dataset, method, '\n-------------')
+        print('ARI:', ARI(labels_true, labels_pred))
+        print('NMI:', NMI(labels_true, labels_pred))
+        print('-------------\n')
 
-# get color list based on labels
-colors = get_color(labels_pred)
-print(colors)
+        # 保存聚类结果，用于绘图和其他分析
+        joblib.dump(labels_pred, 'labels_pred/' + dataset + '/' + method + 'kmeans.pkl')
 
-# get two coordinates
-x = [i[0] for i in data]
-y = [i[1] for i in data]
-# draw
-draw_scatter(x, y, labels_pred, colors)
+        # 生成相关矩阵并保存，用于后续处理
+        rel_mat = RelevanceMatrix(labels_pred)
+        joblib.dump(rel_mat, 'rel_mat/' + dataset + '/' + method + 'kmeans.pkl')
+
+
+if __name__ == '__main__':
+    dataset_name = 'PBMC'
+    n = 6
+    rel_mat_k_means(dataset_name, dimension_reduction_methods, 6)
