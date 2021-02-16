@@ -7,7 +7,7 @@ import joblib
 def RelevanceMatrix(labels):
 
     n_samples = len(labels)
-    rm = np.ones((n_samples, n_samples))
+    rm = np.zeros((n_samples, n_samples))
     for i in range(n_samples):
         for j in range(n_samples):
             if labels[i] == labels[j]:
