@@ -2,13 +2,14 @@ import numpy as np
 from sklearn.cluster import KMeans, AgglomerativeClustering, SpectralClustering
 from sklearn.neighbors import KNeighborsClassifier
 from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from sklearn.mixture import GaussianMixture
 import matplotlib.pyplot as plt
 from Decorator import time_indicator
 
 
-@time_indicator
+# @time_indicator
 def k_means(X, k):
-    k_m_model = KMeans(n_clusters=k, max_iter=300, n_init=40, init='k-means++', n_jobs=-1)
+    k_m_model = KMeans(n_clusters=k, max_iter=300, n_init=40, init='k-means++')
     k_m_model.fit(X)
     return k_m_model.labels_.tolist()
 
@@ -41,9 +42,16 @@ def hca_labels(model, n_clusters):
     return labels
 
 
-@time_indicator
+# @time_indicator
 def AGNES(X, k):
-    labels = AgglomerativeClustering(n_clusters=k).fit(X)
+    labels = AgglomerativeClustering(n_clusters=k).fit(X).labels_
+    return labels
+
+
+# @time_indicator
+def get_GMM(X, k):
+    GMM = GaussianMixture(n_components=k, random_state=0).fit(X)
+    labels = GMM.predict(X)
     return labels
 
 

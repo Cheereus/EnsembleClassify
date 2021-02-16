@@ -24,5 +24,7 @@ distance_matrix = [
 
 cluster_method = [
     'kmeans',
-    'HCA'
+    # 'HCA',
+    'AGNES',
+
 ]

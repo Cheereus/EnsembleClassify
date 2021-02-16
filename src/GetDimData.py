@@ -15,7 +15,7 @@ def get_dim_data(dataset, dr_methods):
         joblib.dump(tSNE_dim_data, 'dim_data/' + dataset + '/_tSNE_.pkl')
 
     if '_PCA_' in dr_methods:
-        PCA_dim_data = get_pca(X, dim=20, with_normalize=True)
+        PCA_dim_data, ratio, _ = get_pca(X, dim=20, with_normalize=True)
         joblib.dump(PCA_dim_data, 'dim_data/' + dataset + '/_PCA_.pkl')
 
     if '_FA_' in dr_methods:
