@@ -21,14 +21,14 @@ def knn(X, y, k):
     return knn_model
 
 
-@time_indicator
+# @time_indicator
 def hca(X, k=None):
     hca_model = linkage(X, 'ward')
     return hca_model
 
 
 # dendogram for hca
-@time_indicator
+# @time_indicator
 def hca_dendrogram(model):
     plt.figure(figsize=(50, 10))
     dendrogram(model, leaf_rotation=90., leaf_font_size=8)
@@ -36,7 +36,7 @@ def hca_dendrogram(model):
 
 
 # labels of hca
-@time_indicator
+# @time_indicator
 def hca_labels(model, n_clusters):
     labels = fcluster(model, n_clusters, criterion='maxclust')
     return labels
