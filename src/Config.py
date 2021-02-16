@@ -26,5 +26,6 @@ cluster_method = [
     'kmeans',
     # 'HCA',
     'AGNES',
+    'GMM',
 
 ]
