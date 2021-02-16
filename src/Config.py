@@ -25,7 +25,7 @@ dimension_reduction_methods = [
 # 使用的聚类方法
 cluster_method = [
     'kmeans',
-    # 'HCA',
+    'HCA',
     'AGNES',
     'GMM',
 ]
