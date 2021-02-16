@@ -10,7 +10,7 @@ y_true_index = joblib.load('train_data/PBMC_y_index.pkl')
 rel_true = joblib.load('rel_mat/' + dataset + '/' + dataset + '_True.pkl')
 n_samples = rel_true.shape[0]
 
-rel_pred = np.zeros((n_samples, n_samples))
+rel_pred = np.ones((n_samples, n_samples))
 
 idx = 0
 # get predict relevance matrix
