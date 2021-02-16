@@ -13,7 +13,7 @@ labels = joblib.load('datasets/' + dataset_name + '_labels.pkl')
 
 print(X.shape)
 
-dim_data = get_mds(X, dim=20, with_normalize=True)
+dim_data = get_Isomap(X, dim=20, with_normalize=True)
 print(dim_data.shape)
 
 # get color list based on labels

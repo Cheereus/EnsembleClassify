@@ -7,7 +7,6 @@ from Config import dimension_reduction_methods
 @time_indicator
 def get_dim_data(dataset, methods):
     X = joblib.load('datasets/' + dataset + '.pkl')
-    labels = joblib.load('datasets/' + dataset + '_labels.pkl')
 
     if '_tSNE_' in methods:
         tSNE_dim_data = t_SNE(X, dim=5, with_normalize=True)
@@ -28,6 +27,14 @@ def get_dim_data(dataset, methods):
     if '_LLE_' in methods:
         LLE_dim_data = get_lle(X, dim=20, with_normalize=True)
         joblib.dump(LLE_dim_data, 'dim_data/' + dataset + '/_LLE_.pkl')
+
+    if '_MDS_' in methods:
+        MDS_dim_data = get_mds(X, dim=20, with_normalize=True)
+        joblib.dump(MDS_dim_data, 'dim_data/' + dataset + '/_MDS_.pkl')
+
+    if '_Isomap_' in methods:
+        Isomap_dim_data = get_Isomap(X, dim=20, with_normalize=True)
+        joblib.dump(Isomap_dim_data, 'dim_data/' + dataset + '/_Isomap_.pkl')
 
 
 if __name__ == '__main__':

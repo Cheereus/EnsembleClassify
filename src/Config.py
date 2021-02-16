@@ -12,7 +12,9 @@ dimension_reduction_methods = [
     '_PCA_',
     '_FA_',
     '_UMAP_',
-    '_LLE_'
+    '_LLE_',
+    '_MDS_',
+    '_Isomap_'
 ]
 
 distance_matrix = [

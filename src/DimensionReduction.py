@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.manifold import TSNE, LocallyLinearEmbedding, MDS
+from sklearn.manifold import TSNE, LocallyLinearEmbedding, MDS, Isomap
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.cluster import FeatureAgglomeration
@@ -80,4 +80,14 @@ def get_mds(data, dim=2, with_normalize=False):
         data = get_normalize(data)
 
     embedding = MDS(random_state=42, n_components=dim).fit_transform(data)
+    return embedding
+
+
+# Isomap
+@time_indicator
+def get_Isomap(data, dim=2, with_normalize=False):
+    if with_normalize:
+        data = get_normalize(data)
+
+    embedding = Isomap(n_components=dim, n_neighbors=10).fit_transform(data)
     return embedding

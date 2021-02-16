@@ -26,18 +26,24 @@ def hca(X, k=None):
     return hca_model
 
 
-@time_indicator
 # dendogram for hca
+@time_indicator
 def hca_dendrogram(model):
     plt.figure(figsize=(50, 10))
     dendrogram(model, leaf_rotation=90., leaf_font_size=8)
     plt.show()
 
 
-@time_indicator
 # labels of hca
+@time_indicator
 def hca_labels(model, n_clusters):
     labels = fcluster(model, n_clusters, criterion='maxclust')
+    return labels
+
+
+@time_indicator
+def AGNES(X, k):
+    labels = AgglomerativeClustering(n_clusters=k).fit(X)
     return labels
 
 
