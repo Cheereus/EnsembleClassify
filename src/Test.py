@@ -1,5 +1,5 @@
 import joblib
-from DimensionReduction import get_pca, t_SNE, feature_agglomeration
+from DimensionReduction import *
 from Clustering import k_means, hca, hca_labels
 from Metrics import ARI
 from Decorator import time_indicator
@@ -13,13 +13,8 @@ labels = joblib.load('datasets/' + dataset_name + '_labels.pkl')
 
 print(X.shape)
 
-# t-SNE
-dim_data = t_SNE(X, dim=2, with_normalize=True, perp=5)
-
-# FA
-# dim_data = feature_agglomeration(X, dim=20)
-
-joblib.dump(dim_data, 'outputs/' + dataset_name + '_tSNE_2_perp5.pkl')
+dim_data = get_mds(X, dim=20, with_normalize=True)
+print(dim_data.shape)
 
 # get color list based on labels
 colors = get_color(labels)

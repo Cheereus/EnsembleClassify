@@ -1,6 +1,6 @@
 import joblib
 import numpy as np
-from Config import dimension_reduction, cluster_method
+from Config import dimension_reduction_methods, cluster_method
 from tqdm import trange
 
 dataset = 'PBMC'
@@ -15,7 +15,7 @@ rel_true = joblib.load('rel_mat/' + dataset + '/' + dataset + '_True.pkl')
 n_samples = rel_true.shape[0]
 
 # load relevance matrix
-for dr in dimension_reduction:
+for dr in dimension_reduction_methods:
     for cm in cluster_method:
         print(dr, cm)
         rel_mats.append(joblib.load('rel_mat/' + dataset + '/' + dataset + dr + cm + '.pkl'))

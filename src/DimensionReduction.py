@@ -1,8 +1,9 @@
 import numpy as np
-from sklearn.manifold import TSNE
+from sklearn.manifold import TSNE, LocallyLinearEmbedding, MDS
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.cluster import FeatureAgglomeration
+import umap
 from Decorator import time_indicator
 
 
@@ -28,11 +29,11 @@ def t_SNE(data, dim=2, perp=30, with_normalize=False):
 
 # PCA
 @time_indicator
-def get_pca(data, c=3, with_normalize=False):
+def get_pca(data, dim=3, with_normalize=False):
     if with_normalize:
         data = get_normalize(data)
 
-    pca_result = PCA(n_components=c)
+    pca_result = PCA(n_components=dim)
     pca_result.fit(data)
     newX = pca_result.fit_transform(data)
 
@@ -50,3 +51,33 @@ def feature_agglomeration(data, dim=2, with_normalize=False):
     data_reduced = agglo.transform(data)
 
     return data_reduced
+
+
+# UMAP
+@time_indicator
+def get_umap(data, dim=10, with_normalize=False):
+    if with_normalize:
+        data = get_normalize(data)
+
+    embedding = umap.UMAP(random_state=42, n_components=dim).fit_transform(data)
+    return embedding
+
+
+# LLE
+@time_indicator
+def get_lle(data, dim=2, with_normalize=False):
+    if with_normalize:
+        data = get_normalize(data)
+
+    embedding = LocallyLinearEmbedding(random_state=42, n_components=dim, n_neighbors=10).fit_transform(data)
+    return embedding
+
+
+# MDS
+@time_indicator
+def get_mds(data, dim=2, with_normalize=False):
+    if with_normalize:
+        data = get_normalize(data)
+
+    embedding = MDS(random_state=42, n_components=dim).fit_transform(data)
+    return embedding
