@@ -7,8 +7,8 @@ from RelevanceFromPred import get_rel_from_pred
 from SubsequentClust import cluster_from_pred_rel
 from Config import dimension_reduction_methods, cluster_methods
 
-dataset_name = 'Chu_cell_time'
-n = 6
+dataset_name = 'Chu_cell_type'
+n = 7
 
 get_true_rel_mat(dataset_name)
 
@@ -22,5 +22,5 @@ ensemble_learning(dataset_name)
 
 get_rel_from_pred(dataset_name)
 
-cluster_from_pred_rel(dataset_name)
+cluster_from_pred_rel(dataset_name, n)
 
