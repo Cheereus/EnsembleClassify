@@ -56,7 +56,11 @@ def draw_scatter(x, y, labels, colors, title='Fig'):
     plt.title(title)
     plt.legend(loc='best')
     plt.show()
+
+    # 文章中需要用到矢量图
     fig.savefig('images/' + title + '.eps', dpi=600, format='eps')
+    # 普通图片
+    fig.savefig('images/' + title + '.png')
 
 
 # draw with label TODO include the get_color function to simplify

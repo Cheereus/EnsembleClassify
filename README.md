@@ -113,3 +113,7 @@ def xxx():
 ### Main.py
 
 * 运行所有流程
+
+### EvaluationAlone.py
+
+* 单独运行计算评价指标并保存为 `.csv` 文件

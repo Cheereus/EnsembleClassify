@@ -3,9 +3,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, Sequential
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from tqdm import trange
 
 
 def ensemble_learning(dataset):
@@ -29,11 +27,13 @@ def ensemble_learning(dataset):
         layers.Dense(32, activation='sigmoid'),
         layers.Dense(64, activation='relu'),
         layers.Dense(32, activation='sigmoid'),
+        layers.Dense(16, activation='sigmoid'),
         layers.Dense(1, activation='sigmoid')
     ])
     model.compile(loss=keras.losses.binary_crossentropy, optimizer='adam', metrics=['accuracy'])
     model.fit(x=data_shuffled, y=labels, validation_split=0.2, epochs=5, batch_size=batch_size)
     y_pred = model.predict(data)
+    model.save('models/' + dataset)
     # acc = 0
     # for i in trange(len(y_pred)):
     #     if labels[i] == y_pred[i]:
