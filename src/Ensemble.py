@@ -44,5 +44,5 @@ def ensemble_learning(dataset):
 
 
 if __name__ == '__main__':
-    dataset_name = 'Chu_cell_type'
+    dataset_name = 'PBMC'
     ensemble_learning(dataset_name)

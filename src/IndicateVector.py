@@ -5,6 +5,7 @@ from tqdm import trange
 from Decorator import time_indicator
 
 
+# TODO 本部分非常消耗内存
 @time_indicator
 def get_indicate_vector(dataset):
 

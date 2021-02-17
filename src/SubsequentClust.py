@@ -20,5 +20,5 @@ def cluster_from_pred_rel(dataset, n_clusters):
 
 
 if __name__ == '__main__':
-    dataset_name = 'Chu_cell_type'
-    cluster_from_pred_rel(dataset_name, 7)
+    dataset_name = 'PBMC'
+    cluster_from_pred_rel(dataset_name, 6)

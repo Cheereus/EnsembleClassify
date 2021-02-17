@@ -26,5 +26,5 @@ def get_rel_from_pred(dataset):
 
 
 if __name__ == '__main__':
-    dataset_name = 'Chu_cell_type'
+    dataset_name = 'PBMC'
     get_rel_from_pred(dataset_name)
