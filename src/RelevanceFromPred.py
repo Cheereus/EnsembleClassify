@@ -5,8 +5,8 @@ from tqdm import trange
 
 def get_rel_from_pred(dataset):
 
-    y_pred = joblib.load('rel_mat/PBMC_Y_Pred_Proba.pkl')
-    y_true_index = joblib.load('train_data/PBMC_y_index.pkl')
+    y_pred = joblib.load('labels_pred/' + dataset + '/_DNN_Pred_Proba.pkl')
+    y_true_index = joblib.load('train_data/' + dataset + '_y_index.pkl')
     # load true labels
     rel_true = joblib.load('rel_mat/' + dataset + '/' + '_True.pkl')
     n_samples = rel_true.shape[0]
@@ -22,8 +22,9 @@ def get_rel_from_pred(dataset):
             idx += 1
 
     joblib.dump(rel_pred, 'rel_mat/' + dataset + '/' + '_DNN_Pred_Proba.pkl')
+    print('Predicted Relevance Matrix Saved')
 
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'Chu_cell_type'
     get_rel_from_pred(dataset_name)

@@ -38,7 +38,9 @@ def get_dim_data(dataset, dr_methods):
         Isomap_dim_data = get_Isomap(X, dim=20, with_normalize=True)
         joblib.dump(Isomap_dim_data, 'dim_data/' + dataset + '/_Isomap_.pkl')
 
+    print('Dim Data Saved')
+
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'Chu_cell_type'
     get_dim_data(dataset_name, dimension_reduction_methods)

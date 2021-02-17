@@ -1,6 +1,6 @@
 import joblib
 import numpy as np
-from Config import dimension_reduction_methods, cluster_method
+from Config import dimension_reduction_methods, cluster_methods
 from tqdm import trange
 from Decorator import time_indicator
 
@@ -19,7 +19,7 @@ def get_indicate_vector(dataset):
 
     # load relevance matrix
     for dr in dimension_reduction_methods:
-        for cm in cluster_method:
+        for cm in cluster_methods:
             rel_mats.append(joblib.load('rel_mat/' + dataset + '/' + dr + cm + '.pkl'))
 
     y_idx = 0
@@ -44,5 +44,5 @@ def get_indicate_vector(dataset):
 
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'Chu_cell_type'
     get_indicate_vector(dataset_name)

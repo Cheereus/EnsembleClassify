@@ -23,9 +23,10 @@ def ensemble_learning(dataset):
 
     # X_train, X_test, Y_train, Y_test = train_test_split(data_shuffled, labels, test_size=0.2)
 
-    batch_size = 256
+    batch_size = 128
 
     model = Sequential([
+        layers.Dense(32, activation='sigmoid'),
         layers.Dense(64, activation='relu'),
         layers.Dense(32, activation='sigmoid'),
         layers.Dense(1, activation='sigmoid')
@@ -39,8 +40,9 @@ def ensemble_learning(dataset):
     #         acc += 1
     # print('Acc:', acc / len(y_pred))
     joblib.dump(y_pred, 'labels_pred/' + dataset + '/_DNN_Pred_Proba.pkl')
+    print('Ensemble Learning Finish')
 
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'Chu_cell_type'
     ensemble_learning(dataset_name)

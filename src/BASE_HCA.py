@@ -9,7 +9,7 @@ from Config import dimension_reduction_methods
 
 # TODO 修改为多线程并行
 @time_indicator
-def get_hca(dataset, dr_methods, n_clusters):
+def rel_mat_hca(dataset, dr_methods, n_clusters):
 
     for method in dr_methods:
 
@@ -37,5 +37,5 @@ def get_hca(dataset, dr_methods, n_clusters):
 if __name__ == '__main__':
     dataset_name = 'PBMC'
     n = 6
-    get_hca(dataset_name, dimension_reduction_methods, 6)
+    rel_mat_hca(dataset_name, dimension_reduction_methods, 6)
 
