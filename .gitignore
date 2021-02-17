@@ -1,7 +1,2 @@
 /.idea
-/src/datasets/*.pkl
-/src/temp
-/src/labels_pred
-/src/rel_mat
-/src/dim_data
-/src/train_data
+*.pkl
