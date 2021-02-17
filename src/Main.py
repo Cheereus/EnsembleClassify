@@ -6,6 +6,7 @@ from Ensemble import ensemble_learning
 from RelevanceFromPred import get_rel_from_pred
 from SubsequentClust import cluster_from_pred_rel
 from EvaluationAlone import calc_all_evaluate
+# 降维方法和聚类方法在 Config.py 中配置
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
