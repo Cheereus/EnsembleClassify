@@ -55,6 +55,10 @@ def get_GMM(X, k):
     return labels
 
 
+def get_spectral(X, k):
+    clustering = SpectralClustering(n_clusters=k, assign_labels="discretize", random_state=0).fit(X)
+    return clustering.labels_
+
 @time_indicator
 # k-medoids
 def kMedoids(D, k, tmax=100):

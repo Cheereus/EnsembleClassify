@@ -9,12 +9,12 @@ from Config import dimension_reduction_methods, cluster_methods
 
 dataset_name = 'Chu_cell_time'
 n = 6
-#
-# get_true_rel_mat(dataset_name)
-#
-# get_dim_data(dataset_name, dimension_reduction_methods)
-#
-# base_classify(dataset_name, cluster_methods, n)
+
+get_true_rel_mat(dataset_name)
+
+get_dim_data(dataset_name, dimension_reduction_methods)
+
+base_classify(dataset_name, cluster_methods, n)
 
 get_indicate_vector(dataset_name)
 

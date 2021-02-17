@@ -12,9 +12,7 @@ def cluster_from_pred_rel(dataset):
 
     labels_pred = k_means(rel_pred, 6)
 
-    # hca training and predict
-    # model = hca(rel_pred)
-    # labels_pred = hca_labels(model, 6)
+    joblib.dump(labels_pred, 'labels_pred/' + dataset + '/' + 'Final_Pred.pkl')
 
     print('Final Clustering Finished')
     print(ARI(labels_true, labels_pred))

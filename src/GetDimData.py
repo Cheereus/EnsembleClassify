@@ -11,7 +11,7 @@ def get_dim_data(dataset, dr_methods):
 
     # 三百六十度花式降维
     if '_tSNE_' in dr_methods:
-        tSNE_dim_data = t_SNE(X, dim=5, with_normalize=True)
+        tSNE_dim_data = t_SNE(X, dim=2, with_normalize=True)
         joblib.dump(tSNE_dim_data, 'dim_data/' + dataset + '/_tSNE_.pkl')
 
     if '_PCA_' in dr_methods:

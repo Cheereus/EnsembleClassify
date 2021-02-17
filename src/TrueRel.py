@@ -10,6 +10,8 @@ def get_true_rel_mat(dataset):
     # print(sum(rel_mat))
     joblib.dump(rel_mat, 'rel_mat/' + dataset + '/_True.pkl')
 
+    print('True Relevance Matrix Got')
+
 
 if __name__ == '__main__':
     dataset_name = 'Chu_cell_type'

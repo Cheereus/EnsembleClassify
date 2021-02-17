@@ -13,7 +13,6 @@ def RelevanceMatrix(labels):
             if labels[i] == labels[j]:
                 rm[i, j] = 1
                 rm[j, i] = 1
-    print('Relevance Matrix Got')
     return rm
 
 
