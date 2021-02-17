@@ -5,9 +5,13 @@ from IndicateVector import get_indicate_vector
 from Ensemble import ensemble_learning
 from RelevanceFromPred import get_rel_from_pred
 from SubsequentClust import cluster_from_pred_rel
+from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
+# 数据集
 dataset_name = 'Chu_cell_type'
+
+# 聚类数目
 n = 7
 
 # 将数据真实标签转化为相关矩阵
@@ -31,3 +35,5 @@ get_rel_from_pred(dataset_name)
 # 对预测得到的相关矩阵进行再次聚类并计算指标
 cluster_from_pred_rel(dataset_name, n)
 
+# 保存基础分类器的评价指标
+calc_all_evaluate(dataset_name)
