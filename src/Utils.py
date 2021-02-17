@@ -56,7 +56,7 @@ def draw_scatter(x, y, labels, colors, title='Fig'):
     plt.title(title)
     plt.legend(loc='best')
     plt.show()
-    fig.savefig('images/' + title + '.png', transparent=True)
+    fig.savefig('images/' + title + '.eps', dpi=600, format='eps')
 
 
 # draw with label TODO include the get_color function to simplify
