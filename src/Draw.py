@@ -60,7 +60,7 @@ def draw_bars(dataset, metric='ARI', ensemble=0.0):
 
 
 if __name__ == '__main__':
-    dataset_name = 'Chu_cell_type'
+    dataset_name = 'Chu_cell_time'
     cluster_methods = ['k-means', 'AGNES', 'GMM', 'Spectral Clustering']
-    # draw_scatter_2d_from_UMAP(dataset_name)
-    draw_bars(dataset_name, metric='NMI', ensemble=0.8993)
+    # draw_scatter_2d_from_tSNE(dataset_name)
+    draw_bars(dataset_name, metric='NMI', ensemble=0.6839)
