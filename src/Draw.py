@@ -14,11 +14,11 @@ def draw_scatter_2d_from_tSNE(dataset):
 
     labels = joblib.load('datasets/' + dataset + '_labels.pkl')
     colors = get_color(labels, default_colors)
-    draw_scatter(x, y, labels, colors, title='True Label with t-SNE, ' + dataset)
+    draw_scatter(x, y, labels, colors, title='True Label with t-SNE, ' + dataset, xlabel='tSNE-1', ylabel='tSNE-2')
 
     labels_pred = joblib.load('labels_pred/' + dataset + '/' + 'Final_Pred.pkl')
     colors = get_color(labels_pred, default_colors)
-    draw_scatter(x, y, labels_pred, colors, title='Predict Label with t-SNE, ' + dataset)
+    draw_scatter(x, y, labels_pred, colors, title='Predict Label with t-SNE, ' + dataset, xlabel='tSNE-1', ylabel='tSNE-2')
 
 
 def draw_scatter_2d_from_UMAP(dataset):
@@ -29,11 +29,11 @@ def draw_scatter_2d_from_UMAP(dataset):
 
     labels = joblib.load('datasets/' + dataset + '_labels.pkl')
     colors = get_color(labels, default_colors)
-    draw_scatter(x, y, labels, colors, title='True Label with UMAP, ' + dataset)
+    draw_scatter(x, y, labels, colors, title='True Label with UMAP, ' + dataset, xlabel='UMAP-1', ylabel='UMAP-2')
 
     labels_pred = joblib.load('labels_pred/' + dataset + '/' + 'Final_Pred.pkl')
     colors = get_color(labels_pred, default_colors)
-    draw_scatter(x, y, labels_pred, colors, title='Predict Label with UMAP, ' + dataset)
+    draw_scatter(x, y, labels_pred, colors, title='Predict Label with UMAP, ' + dataset, xlabel='UMAP-1', ylabel='UMAP-2')
 
 
 def draw_bars(dataset, metric='ARI', ensemble=0.0):
@@ -46,11 +46,13 @@ def draw_bars(dataset, metric='ARI', ensemble=0.0):
         plt.subplot(2, 2, i + 1)
         plt.bar([i.replace('_', '') for i in dimension_reduction_methods] + ['Ensemble'], list(np.ndarray.tolist(data[i])) + [ensemble], width=1, color=colors, alpha=0.9)
         plt.tick_params(labelsize=12)
+        plt.rcParams['xtick.direction'] = 'in'  # 将x轴的刻度线方向设置向内
+        plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
         plt.legend(title=cluster_methods[i], frameon=False, fontsize=20)
 
     plt.show()
     # 文章中需要用到矢量图
-    fig.savefig('images/' + dataset + '_' + metric + '.eps', dpi=600, format='eps', bbox_inches='tight')
+    fig.savefig('images/' + dataset + '_' + metric + '.tiff', dpi=600, format='tiff', bbox_inches='tight')
     # 普通图片
     fig.savefig('images/' + dataset + '_' + metric + '.png', bbox_inches='tight')
 

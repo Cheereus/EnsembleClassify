@@ -35,7 +35,7 @@ def get_color(labels, colors=None):
 
 
 # draw with label TODO include the get_color function to simplify
-def draw_scatter(x, y, labels, colors, title='Fig'):
+def draw_scatter(x, y, labels, colors, title=None, xlabel='x', ylabel='y'):
     len_labels = len(labels)
     t = 0
     count_result = Counter(labels)
@@ -53,12 +53,17 @@ def draw_scatter(x, y, labels, colors, title='Fig'):
         plt.scatter(xi, yi, c=ci, label=i, s=10)
         t += 1
 
-    plt.title(title)
+    plt.rcParams['xtick.direction'] = 'in'  # 将x周的刻度线方向设置向内
+    plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
+    # if title:
+    #     plt.title(title)
     plt.legend(loc='best')
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.show()
 
     # 文章中需要用到矢量图
-    fig.savefig('images/' + title + '.eps', dpi=600, format='eps')
+    fig.savefig('images/' + title + '.tiff', dpi=600, format='tiff', bbox_inches='tight')
     # 普通图片
     fig.savefig('images/' + title + '.png')
 
