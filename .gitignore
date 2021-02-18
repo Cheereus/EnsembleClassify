@@ -2,3 +2,4 @@
 *.pkl
 src/models
 *.tiff
+*.svg

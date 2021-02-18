@@ -10,10 +10,10 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'PBMC'
+dataset_name = 'Yan_human'
 
 # 聚类数目
-n = 6
+n = 8
 
 # 将数据真实标签转化为相关矩阵
 get_true_rel_mat(dataset_name)
@@ -26,15 +26,15 @@ base_classify(dataset_name, cluster_methods, n)
 
 # 将聚类结果得到的相关矩阵拼接成指示向量 TODO 非常耗内存
 get_indicate_vector(dataset_name)
-
-# 将指示向量输入神经网络训练集成分类器
-ensemble_learning(dataset_name)
-
-# 将神经网络预测结果重新构造为相关矩阵
-get_rel_from_pred(dataset_name)
-
-# 对预测得到的相关矩阵进行再次聚类并计算指标
-cluster_from_pred_rel(dataset_name, n)
-
-# 保存基础分类器的评价指标
-calc_all_evaluate(dataset_name)
+#
+# # 将指示向量输入神经网络训练集成分类器
+# ensemble_learning(dataset_name)
+#
+# # 将神经网络预测结果重新构造为相关矩阵
+# get_rel_from_pred(dataset_name)
+#
+# # 对预测得到的相关矩阵进行再次聚类并计算指标
+# cluster_from_pred_rel(dataset_name, n)
+#
+# # 保存基础分类器的评价指标
+# calc_all_evaluate(dataset_name)

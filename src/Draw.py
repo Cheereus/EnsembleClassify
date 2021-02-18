@@ -43,22 +43,24 @@ def draw_bars(dataset, metric='ARI', ensemble=0.0):
     plt.rcParams['font.sans-serif'] = ['Times New Roman']
     fig = plt.figure()
     for i in range(n_cm):
-        plt.subplot(2, 2, i + 1)
-        plt.bar([i.replace('_', '') for i in dimension_reduction_methods] + ['Ensemble'], list(np.ndarray.tolist(data[i])) + [ensemble], width=1, color=colors, alpha=0.9)
-        plt.tick_params(labelsize=12)
         plt.rcParams['xtick.direction'] = 'in'  # 将x轴的刻度线方向设置向内
         plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
-        plt.legend(title=cluster_methods[i], frameon=False, fontsize=20)
+        plt.subplot(2, 2, i + 1)
+        plt.ylim(0, 1)
+        plt.yticks(np.arange(0, 1, 0.1))
+        plt.bar([i.replace('_', '') for i in dimension_reduction_methods] + ['SCEC'], list(np.ndarray.tolist(data[i])) + [ensemble], width=1, color=colors)
+        plt.tick_params(labelsize=12)
+        plt.legend(title=cluster_methods[i], frameon=False, fontsize=40, loc='upper left')
 
     plt.show()
     # 文章中需要用到矢量图
-    fig.savefig('images/' + dataset + '_' + metric + '.tiff', dpi=600, format='tiff', bbox_inches='tight')
+    fig.savefig('images/' + dataset + '_' + metric + '.svg', dpi=600, format='svg', bbox_inches='tight')
     # 普通图片
     fig.savefig('images/' + dataset + '_' + metric + '.png', bbox_inches='tight')
 
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'Chu_cell_type'
     cluster_methods = ['k-means', 'AGNES', 'GMM', 'Spectral Clustering']
-    draw_scatter_2d_from_UMAP(dataset_name)
-    # draw_bars(dataset_name, metric='ARI', ensemble=0.8640)
+    # draw_scatter_2d_from_UMAP(dataset_name)
+    draw_bars(dataset_name, metric='NMI', ensemble=0.8993)
