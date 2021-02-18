@@ -1,4 +1,4 @@
 /.idea
 *.pkl
 src/models
-*.pkl
+*.tiff
