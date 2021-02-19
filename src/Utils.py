@@ -39,6 +39,8 @@ def draw_scatter(x, y, labels, colors, title=None, xlabel='x', ylabel='y'):
     len_labels = len(labels)
     t = 0
     count_result = Counter(labels)
+    plt.rcParams['xtick.direction'] = 'in'  # 将x周的刻度线方向设置向内
+    plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
     fig = plt.figure(figsize=(15, 15))
 
     for i in count_result.keys():
@@ -53,8 +55,6 @@ def draw_scatter(x, y, labels, colors, title=None, xlabel='x', ylabel='y'):
         plt.scatter(xi, yi, c=ci, label=i, s=10)
         t += 1
 
-    plt.rcParams['xtick.direction'] = 'in'  # 将x周的刻度线方向设置向内
-    plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
     # if title:
     #     plt.title(title)
     plt.legend(loc='best')

@@ -10,10 +10,10 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'Chu_cell_time'
+dataset_name = 'GSE57872'
 
 # 聚类数目
-n = 8
+n = 5
 
 # 将数据真实标签转化为相关矩阵
 get_true_rel_mat(dataset_name)

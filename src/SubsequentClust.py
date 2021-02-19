@@ -1,7 +1,6 @@
 import joblib
 import numpy as np
 from Clustering import k_means
-from Clustering import hca, hca_dendrogram, hca_labels
 from Metrics import ARI, NMI
 
 
@@ -20,5 +19,5 @@ def cluster_from_pred_rel(dataset, n_clusters):
 
 
 if __name__ == '__main__':
-    dataset_name = 'Chu_cell_time'
-    cluster_from_pred_rel(dataset_name, 6)
+    dataset_name = 'GSE57872'
+    cluster_from_pred_rel(dataset_name, 5)
