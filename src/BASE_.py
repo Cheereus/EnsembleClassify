@@ -1,9 +1,8 @@
-from GetDimData import get_dim_data
 from BASE_KMeans import rel_mat_k_means
 from BASE_AGNES import rel_mat_AGNES
 from BASE_Spectral import rel_mat_spectral
 from BASE_GMM import rel_mat_GMM
-from BASE_HCA import rel_mat_hca
+from useless.BASE_HCA import rel_mat_hca
 from Config import dimension_reduction_methods, cluster_methods
 
 

@@ -15,9 +15,9 @@ h_dim = 20
 batchsz = 20
 lr = 1e-3
 
-x_train = joblib.load('datasets/PBMC.pkl')
+x_train = joblib.load('../datasets/PBMC.pkl')
 n_cells, n_genes = x_train.shape
-y_train = np.array(joblib.load('datasets/PBMC_labels.pkl'))
+y_train = np.array(joblib.load('../datasets/PBMC_labels.pkl'))
 # (x_train, y_train), (x_test, y_test) = keras.datasets.fashion_mnist.load_data()
 x_train = x_train.astype(np.float32)
 
