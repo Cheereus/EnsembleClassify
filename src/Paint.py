@@ -85,7 +85,7 @@ def paint_bars_together(dataset, ensemble=None):
         df[i].insert(7, '7', ensemble[i])
         pd.DataFrame(df[i])
         df[i].columns = ['tSNE', 'PCA', 'FA', 'UMAP', 'LLE', 'MDS', 'Isomap', 'SCEC']
-        df[i].index = ['K-Means', 'AGENS', 'GMM', 'Spectral Clustering']
+        df[i].index = ['K-Means', 'AGNES', 'GMM', 'Spectral Clustering']
         for j in range(df[i].shape[1]):  # 每个df的列
             plt.ylim(0, 1)
             plt.bar(x + bar_width * j, df[i][df[i].columns[j]], bar_width,
