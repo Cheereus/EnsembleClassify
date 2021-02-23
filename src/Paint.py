@@ -108,5 +108,5 @@ def paint_bars_together(dataset, ensemble=None):
 
 if __name__ == '__main__':
     # paint_scatter_together('Chu_cell_type', 7, '_tSNE_')
-    # paint_bars_together(dataset='Chu_cell_type', ensemble=[0.8466, 0.8993])
-    paint_bars_together(dataset='PBMC', ensemble=[0.8640, 0.7430])
+    paint_bars_together(dataset='Chu_cell_type', ensemble=[0.8466, 0.8993])
+    # paint_bars_together(dataset='PBMC', ensemble=[0.8640, 0.7430])
