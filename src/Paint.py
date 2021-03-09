@@ -6,7 +6,7 @@ import numpy as np
 
 
 def paint_scatter_together(dataset, n_clusters, value_type='_UMAP_'):
-    from DimensionReduction import get_umap, t_SNE
+    from DimensionReduction import get_umap, t_SNE, get_pca
     dim_data_original = joblib.load('datasets/' + dataset + '.pkl')
     # dim_data_original = joblib.load('dim_data/' + dataset + '/' + value_type + '.pkl')
     dim_data_incidence = joblib.load('rel_mat/' + dataset + '/' + '_DNN_Pred_Proba.pkl')
@@ -22,6 +22,9 @@ def paint_scatter_together(dataset, n_clusters, value_type='_UMAP_'):
     if value_type == '_tSNE_':
         dim_data_original = t_SNE(dim_data_original, 2, with_normalize=True)
         dim_data_incidence = t_SNE(dim_data_incidence, 2)
+    if value_type == '_PCA_':
+        dim_data_original, _1, _2 = get_pca(dim_data_original, 2, with_normalize=True)
+        dim_data_incidence, _1, _2 = get_pca(dim_data_incidence, 2)
 
     fig = plt.figure()
 
