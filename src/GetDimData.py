@@ -8,6 +8,7 @@ from Config import dimension_reduction_methods
 @time_indicator
 def get_dim_data(dataset, dr_methods):
     X = joblib.load('datasets/' + dataset + '.pkl')
+    print('Data shape:', X.shape)
 
     # 三百六十度花式降维
     if '_tSNE_' in dr_methods:

@@ -14,8 +14,9 @@ def cluster_from_pred_rel(dataset, n_clusters):
     joblib.dump(labels_pred, 'labels_pred/' + dataset + '/' + 'Final_Pred.pkl')
 
     print('Final Clustering Finished')
-    print(ARI(labels_true, labels_pred))
-    print(NMI(labels_true, labels_pred))
+    # print(ARI(labels_true, labels_pred))
+    # print(NMI(labels_true, labels_pred))
+    return ARI(labels_true, labels_pred), NMI(labels_true, labels_pred)
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+from Prepare import make_dir
 from TrueRel import get_true_rel_mat
 from GetDimData import get_dim_data
 from BASE_ import base_classify
@@ -10,10 +11,13 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'GSE57872'
+dataset_name = 'Kolodziejczyk'
 
 # 聚类数目
-n = 5
+n = 3
+
+# 准备工作
+make_dir(dataset_name)
 
 # 将数据真实标签转化为相关矩阵
 get_true_rel_mat(dataset_name)
@@ -34,7 +38,12 @@ ensemble_learning(dataset_name)
 get_rel_from_pred(dataset_name)
 
 # 对预测得到的相关矩阵进行再次聚类并计算指标
-cluster_from_pred_rel(dataset_name, n)
+ari, nmi = cluster_from_pred_rel(dataset_name, n)
 
 # 保存基础分类器的评价指标
 calc_all_evaluate(dataset_name)
+
+print('-------------')
+print(dataset_name, 'SCEC')
+print('ARI:', ari)
+print('NMI:', nmi)

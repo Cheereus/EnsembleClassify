@@ -19,10 +19,10 @@ def calc_all_evaluate(dataset):
             ari = ARI(labels_true, labels_pred)
             nmi = NMI(labels_true, labels_pred)
             # 计算并输出评价指标
-            print('-------------')
-            print(dataset, dimension_reduction_methods[j], cluster_methods[i])
-            print('ARI:', ari)
-            print('NMI:', nmi)
+            # print('-------------')
+            # print(dataset, dimension_reduction_methods[j], cluster_methods[i])
+            # print('ARI:', ari)
+            # print('NMI:', nmi)
             ARI_matrix[i, j] = ari
             NMI_matrix[i, j] = nmi
 
