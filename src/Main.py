@@ -11,7 +11,7 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'GSE65525'
+dataset_name = 'data'
 
 # 聚类数目
 n = get_n_clusters(dataset_name)

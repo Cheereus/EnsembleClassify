@@ -111,7 +111,44 @@ def paint_bars_together(dataset, ensemble=None):
     fig.savefig('images/' + dataset + '_bars_together.png', bbox_inches='tight')
 
 
+def draw_scatter_across_datasets(datasets, n_clusters):
+    source = 'visualization/data/'
+    plt.rcParams['font.sans-serif'] = ['Times New Roman']
+    plt.rcParams['axes.unicode_minus'] = False
+    fig = plt.figure()
+    for i in range(8):
+
+        plt.subplot(2, 4, i + 1)
+        dataset = datasets[i % 4]
+        n_cluster = n_clusters[i % 4]
+        label_true = joblib.load(source + dataset + '_labels.pkl')
+        label_true = get_color(label_true, range(n_cluster))
+        data_path = source + dataset
+        if i < 4:
+            plt.title(dataset)
+            data_path += '_original.pkl'
+        else:
+            data_path += '_incidence.pkl'
+        data = joblib.load(data_path)
+
+        if i == 0:
+            plt.ylabel("Original Data")
+        if i == 4:
+            plt.ylabel("Incidence Matrix")
+
+        plt.rcParams['xtick.direction'] = 'in'
+        plt.rcParams['ytick.direction'] = 'in'
+        plt.scatter(data[:, 0], data[:, 1], c=label_true, cmap='rainbow', s=1)
+
+    plt.show()
+    # 文章中需要用到矢量图
+    fig.savefig('images/ALL_scatter.svg', dpi=600, format='svg', bbox_inches='tight')
+    # 普通图片
+    fig.savefig('images/ALL_scatter.png', bbox_inches='tight')
+
+
 if __name__ == '__main__':
-    paint_scatter_together('Chu_cell_type', 7, '_tSNE_')
-    # paint_bars_together(dataset='GSE65525', ensemble=[0.9768639508782695, 0.9535922748870312])
+    draw_scatter_across_datasets(['PBMC', 'Chu cell type', 'Klein', 'Zeisel'], [6, 7, 4, 9])
+    # paint_scatter_together('data', 9, '_UMAP_')
+    # paint_bars_together(dataset='data', ensemble=[0.8071794121270436, 0.7609870645709287])
     # paint_bars_together(dataset='PBMC', ensemble=[0.8640, 0.7430])
