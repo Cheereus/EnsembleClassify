@@ -26,5 +26,5 @@ def get_rel_from_pred(dataset):
 
 
 if __name__ == '__main__':
-    dataset_name = 'PBMC'
+    dataset_name = 'GSE84133'
     get_rel_from_pred(dataset_name)

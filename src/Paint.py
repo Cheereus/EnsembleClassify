@@ -26,6 +26,8 @@ def paint_scatter_together(dataset, n_clusters, value_type='_UMAP_'):
         dim_data_original, _1, _2 = get_pca(dim_data_original, 2, with_normalize=True)
         dim_data_incidence, _1, _2 = get_pca(dim_data_incidence, 2)
 
+    joblib.dump(dim_data_original, 'visualization/' + dataset + value_type + 'original.pkl')
+    joblib.dump(dim_data_incidence, 'visualization/' + dataset + value_type + 'incidence.pkl')
     fig = plt.figure()
 
     plt.rcParams['font.sans-serif'] = ['Times New Roman']
@@ -110,6 +112,6 @@ def paint_bars_together(dataset, ensemble=None):
 
 
 if __name__ == '__main__':
-    # paint_scatter_together('Chu_cell_type', 7, '_tSNE_')
-    paint_bars_together(dataset='Chu_cell_type', ensemble=[0.8466, 0.8993])
+    paint_scatter_together('Chu_cell_type', 7, '_tSNE_')
+    # paint_bars_together(dataset='GSE65525', ensemble=[0.9768639508782695, 0.9535922748870312])
     # paint_bars_together(dataset='PBMC', ensemble=[0.8640, 0.7430])

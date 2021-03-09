@@ -11,10 +11,11 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'GSE84133'
+dataset_name = 'GSE65525'
 
 # 聚类数目
 n = get_n_clusters(dataset_name)
+print('Cluster Number:', n)
 
 # 准备工作
 make_dir(dataset_name)

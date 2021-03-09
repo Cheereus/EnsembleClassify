@@ -14,11 +14,11 @@ def cluster_from_pred_rel(dataset, n_clusters):
     joblib.dump(labels_pred, 'labels_pred/' + dataset + '/' + 'Final_Pred.pkl')
 
     print('Final Clustering Finished')
-    # print(ARI(labels_true, labels_pred))
-    # print(NMI(labels_true, labels_pred))
+    print(ARI(labels_true, labels_pred))
+    print(NMI(labels_true, labels_pred))
     return ARI(labels_true, labels_pred), NMI(labels_true, labels_pred)
 
 
 if __name__ == '__main__':
-    dataset_name = 'GSE57872'
-    cluster_from_pred_rel(dataset_name, 5)
+    dataset_name = 'GSE84133'
+    cluster_from_pred_rel(dataset_name, 13)
