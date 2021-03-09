@@ -1,4 +1,6 @@
 import os
+import joblib
+from collections import Counter
 
 
 def make_dir(dataset):
@@ -11,5 +13,11 @@ def make_dir(dataset):
     print('Directory created')
 
 
+def get_n_clusters(dataset):
+    labels_true = joblib.load('datasets/' + dataset + '_labels.pkl')
+    count_result = Counter(labels_true)
+    return len(count_result.keys())
+
+
 if __name__ == '__main__':
-    make_dir('Kolodziejczyk')
+    get_n_clusters('GSE84133')

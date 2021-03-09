@@ -1,4 +1,4 @@
-from Prepare import make_dir
+from Prepare import make_dir, get_n_clusters
 from TrueRel import get_true_rel_mat
 from GetDimData import get_dim_data
 from BASE_ import base_classify
@@ -11,10 +11,10 @@ from EvaluationAlone import calc_all_evaluate
 from Config import dimension_reduction_methods, cluster_methods
 
 # 数据集
-dataset_name = 'Kolodziejczyk'
+dataset_name = 'GSE84133'
 
 # 聚类数目
-n = 3
+n = get_n_clusters(dataset_name)
 
 # 准备工作
 make_dir(dataset_name)
