@@ -19,6 +19,52 @@ def xxx():
     print('这样会自动在控制台输出此函数的运行起止时间')
 ```
 
+## 核心流程文件
+
+### Config.py
+
+* 全局配置文件
+
+### Prepare.py
+
+* 程序运行的准备工作
+
+### TrueRel.py
+
+* 将数据真实标签转化为相关矩阵
+
+### GetDimData.py
+
+* 对原始数据进行多种降维并保存
+
+### BASE_*.py
+
+* 对降维数据进行多方法聚类并保存相关矩阵
+
+### IndicateVector.py
+
+* 将聚类结果得到的相关矩阵拼接成指示向量
+
+### Ensemble.py
+
+* 将指示向量输入神经网络训练集成分类器
+
+### RelevanceFromPred.py
+
+* 将神经网络预测结果重新构造为相关矩阵
+
+### SubsequentPred.py
+
+* 对预测得到的相关矩阵进行再次聚类并计算指标
+
+### Main.py
+
+* 运行所有流程
+
+### EvaluationAlone.py
+
+* 单独运行计算评价指标并保存为 `.csv` 文件
+
 ## 核心函数库
 
 请不要擅自修改核心文件中的内容
@@ -79,41 +125,3 @@ def xxx():
 包括一些装饰器：
 
 * `time_indicator()` 在控制台输出函数的运行起止时间
-
-## 核心流程文件
-
-### Config.py
-
-* 全局配置文件
-
-### GetDimData.py
-
-* 对原始数据进行多种降维并保存
-
-### BASE_*.py
-
-* 对降维数据进行多方法聚类并保存相关矩阵
-
-### IndicateVector.py
-
-* 将聚类结果得到的相关矩阵拼接成指示向量
-
-### Ensemble.py
-
-* 将指示向量输入神经网络训练集成分类器
-
-### RelevanceFromPred.py
-
-* 将神经网络预测结果重新构造为相关矩阵
-
-### SubsequentPred.py
-
-* 对预测得到的相关矩阵进行再次聚类并计算指标
-
-### Main.py
-
-* 运行所有流程
-
-### EvaluationAlone.py
-
-* 单独运行计算评价指标并保存为 `.csv` 文件
