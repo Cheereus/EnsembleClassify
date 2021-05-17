@@ -149,6 +149,6 @@ def draw_scatter_across_datasets(datasets, n_clusters):
 
 if __name__ == '__main__':
     draw_scatter_across_datasets(['PBMCs', 'Chu cell type', 'Klein', 'Zeisel'], [6, 7, 4, 9])
-    # paint_scatter_together('data', 9, '_UMAP_')
+    # paint_scatter_together('PBMC', 6, '_tSNE_')
     # paint_bars_together(dataset='data', ensemble=[0.8071794121270436, 0.7609870645709287])
     # paint_bars_together(dataset='PBMC', ensemble=[0.8640, 0.7430])
