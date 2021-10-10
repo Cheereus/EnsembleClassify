@@ -41,8 +41,9 @@ def read_from_txt(filePath):
         data_list.append(num)
         line = f.readline()
     f.close()
-    array_data = np.array(data_list)
-    return array_data
+    head = data_list[0]
+    array_data = np.array(data_list[1:])
+    return head, array_data[:, 1:]
 
 
 # Save data to `.csv` file

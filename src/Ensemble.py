@@ -5,6 +5,8 @@ from tensorflow import keras
 from tensorflow.keras import layers, Sequential
 from sklearn.metrics import accuracy_score
 
+def p_q_loss(y_true, y_pred):
+    
 
 def ensemble_learning(dataset):
 
